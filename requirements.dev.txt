@@ -1,0 +1,11 @@
+# dev dependencies
+ipython
+ipdb
+pytest-watch
+pytest
+
+
+
+# Install project as editable
+-e .
+
