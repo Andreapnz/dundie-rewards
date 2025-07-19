@@ -9,6 +9,12 @@ on:
       - "main"
 
   workflow_dispatch:
+  
+
+  permissions:
+  checks: write
+  pull-requests: write
+  contents: read
 
 
 jobs:
