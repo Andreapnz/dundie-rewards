@@ -3,16 +3,45 @@ name: CI
 on: 
   push:
     branches:
-      - "main"
+      - "linters"
   pull_request:
     branches:
-      - "main"
+      - "linters"
 
   workflow_dispatch:
 
 
+permissions:
+  checks: write
+  pull-requests: write
+  contents: read
+
+
 jobs:
+  lint:
+    strategy:
+      fail-fast: true
+      matrix:
+        python-version: ['3.10']
+        os: [ubuntu-latest]
+    runs-on: ${{matrix.os}}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{matrix.python-version}}
+      - name: Install Project 
+        run: pip install '.[test]'
+      - name: Look for style errors
+        run: pflake8
+      - name: check for importing style
+        run: isort --profile=black --check --diff dundie tests integration
+      - name: Look for auto format errors
+        run: black --check --diff dundie tests integration
+
+
   tests:
+    needs: lint
     strategy:
       fail-fast: false
       matrix:
@@ -29,7 +58,7 @@ jobs:
       - name: Run tests 
         run: pytest -v --junitxml=test-result.xml
       - name: publish junit results
-        users: EnricoMi/publish-unit-test-result-action@v1
+        uses: EnricoMi/publish-unit-test-result-action@v1
         if: always()
         with:
           files: test-result.xml
