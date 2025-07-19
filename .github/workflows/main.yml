@@ -2,9 +2,11 @@ name: CI
 
 on: 
   push:
-    branches: [""]
+    branches:
+      - "linters"
   pull_request:
-    branches: [""]
+    branches:
+      - "linters"
 
   workflow_dispatch:
 
