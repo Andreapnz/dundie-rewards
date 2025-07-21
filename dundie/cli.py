@@ -1,6 +1,6 @@
 import argparse
 
-from dundie.core import load  
+from dundie.core import load 
 
 
 def main():
@@ -22,6 +22,7 @@ def main():
         default=None,
     )
     args = parser.parse_args()
+
 
     if args.subcommand == "load":
         result = load(args.filepath)
