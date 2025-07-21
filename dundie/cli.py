@@ -23,7 +23,11 @@ def main():
     )
     args = parser.parse_args()
 
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 37b5801 (configurando arquivos)
     if args.subcommand == "load":
         result = load(args.filepath)
         header = ["name", "dept", "role", "email"]
