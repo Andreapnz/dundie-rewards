@@ -5,7 +5,7 @@
 ![Plataforma](https://img.shields.io/badge/terminal-app-informational)
 ![Licença](https://img.shields.io/badge/license-MIT-green)
 
-Projeto de Sistema de recompensas desenvolvido para a Dunder Mifflin, fabricante de papel, com foco em motivar colaboradores através de pontos de desempenho e bonificações. 🧻✨
+Projeto da LinuxTips de Sistema de recompensas desenvolvido para a Dunder Mifflin, fabricante de papel, com foco em motivar colaboradores através de pontos de desempenho e bonificações. 🧻✨
 
 ---
 
