@@ -28,8 +28,7 @@ testci:
 
 watch:
 	# @.venv/bin/ptw
-	@ls **/*.py | entr pytest
-
+	@ls **/*.py | entr pytest -s 
 
 clean:            ## Clean unused files.
 	@find ./ -name '*.pyc' -exec rm -f {} \;
