@@ -21,14 +21,14 @@ fmt:
 	@.venv/bin/black dundie tests integration
 
 test:
-	@.venv/bin/pytest -s
+	@.venv/bin/pytest -s -v --forked
 
 testci:
 	@.venv/bin/pytest -v --junitxml=test-result.xml  
 
 watch:
 	# @.venv/bin/ptw
-	@ls **/*.py | entr pytest -s 
+	@ls **/*.py | entr pytest -s --forked
 
 clean:            ## Clean unused files.
 	@find ./ -name '*.pyc' -exec rm -f {} \;

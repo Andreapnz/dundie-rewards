@@ -17,8 +17,8 @@
         }
     },
     "balance": {
-        "jim@dundlermifflin.com": 500,
-        "schrute@dundlermifflin.com": 100,
+        "jim@dundlermifflin.com": 535,
+        "schrute@dundlermifflin.com": 135,
         "glewis@dundlermifflin.com": 100
     },
     "movement": {
@@ -27,6 +27,16 @@
                 "date": "2025-07-22T23:50:26.443382",
                 "actor": "system",
                 "value": 500
+            },
+            {
+                "date": "2025-07-24T21:36:17.000390",
+                "actor": "andrea",
+                "value": 30
+            },
+            {
+                "date": "2025-07-24T21:41:58.904554",
+                "actor": "andrea",
+                "value": 5
             }
         ],
         "schrute@dundlermifflin.com": [
@@ -34,6 +44,16 @@
                 "date": "2025-07-22T23:50:26.446653",
                 "actor": "system",
                 "value": 100
+            },
+            {
+                "date": "2025-07-24T21:36:17.000407",
+                "actor": "andrea",
+                "value": 30
+            },
+            {
+                "date": "2025-07-24T21:41:58.904571",
+                "actor": "andrea",
+                "value": 5
             }
         ],
         "glewis@dundlermifflin.com": [
