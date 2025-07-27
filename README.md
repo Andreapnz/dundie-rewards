@@ -1,5 +1,5 @@
 # 🏆 Dundie Rewards
-
+![CI](https://github.com/Andreapnz/dundie-rewards/actions/workflows/main.yml/badge.svg)
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 ![Versão](https://img.shields.io/badge/version-0.1.0-blue)
 ![Plataforma](https://img.shields.io/badge/terminal-app-informational)
