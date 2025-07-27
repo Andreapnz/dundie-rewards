@@ -64,6 +64,14 @@ def set_initial_balance(db, pk, person):
 
 
 def add_movement(db, pk, value, actor="system"):
+    """Ads movemento to user account.
+
+    Example::
+
+        add_movement()
+
+    """
+
     movements = db["movement"].setdefault(pk, [])
     movements.append(
         {"date": datetime.now().isoformat(), "actor": actor, "value": value}

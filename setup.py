@@ -20,27 +20,26 @@ def read_requirements(path):
     return [
         line.strip()
         for line in read(path).split("\n")
-        if not line.startswith(("#", "git+", '"', '-'))
+        if not line.startswith(("#", "git+", '"', "-"))
     ]
 
 
 setup(
     name="dundie",
+    # Major.Minor.Patch
+    # X.Y.Z
     version="0.1.0",
     description="Reward Point System for Dunder Mifflin",
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
-    author="Bruno Rocha",
+    author="Andrea Correia",
     python_requires=">=3.8",
-    packages=find_packages(),
-    entry_points={
-        "console_scripts": [
-            "dundie = dundie.__main__:main"
-        ]
-    },
+    packages=find_packages(exclude=["integration"]),
+    include_package_data=True,
+    entry_points={"console_scripts": ["dundie = dundie.__main__:main"]},
     install_requires=read_requirements("requirements.txt"),
     extras_require={
         "test": read_requirements("requirements.test.txt"),
-        "dev": read_requirements("requirements.dev.txt")
-    }
+        "dev": read_requirements("requirements.dev.txt"),
+    },
 )

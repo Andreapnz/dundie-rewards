@@ -1,3 +1,5 @@
+"""Dundie CLI Application"""
+
 import json
 
 import pkg_resources
@@ -27,7 +29,7 @@ def main():
 @main.command()
 @click.argument("filepath", type=click.Path(exists=True))
 def load(filepath):
-    """Loads the file to the database.
+    """Load data from a file.
 
     ## Features
 
