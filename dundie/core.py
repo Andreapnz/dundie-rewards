@@ -1,4 +1,4 @@
-"""Core module of dundie"""
+"""Core module of dundie."""
 
 import os
 from csv import reader
@@ -10,7 +10,8 @@ log = get_logger()
 
 
 def load(filepath):
-    """Loads data from filepath to the database.
+    """Load data from filepath to the database.
+
     >>> len(load("assets/people.csv"))
     2
     >>> load("assets/people.csv")[0][0]
@@ -40,8 +41,9 @@ def load(filepath):
 
 
 def read(**query):
-    """Read data from db and filters using query
-    read(email="joe@doe.com")
+    """Read data from db and filters using query.
+
+    Example: read(email="joe@doe.com").
     """
     db = connect()
     return_data = []
@@ -67,7 +69,7 @@ def read(**query):
 
 
 def add(value, **query):
-    """Add value to each record on query"""
+    """Add value to each record on query."""
     people = read(**query)
 
     if not people:

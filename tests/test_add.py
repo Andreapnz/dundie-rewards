@@ -1,3 +1,5 @@
+"""Module for testing the add functionality in the dundie application."""
+
 import pytest
 
 from dundie.core import add, load, read
@@ -8,6 +10,7 @@ from .constants import PEOPLE_FILE
 
 @pytest.mark.unit
 def test_add_movement():
+    """Test adding a movement to the database."""
     db = connect()
 
     pk = "joe@doe.com"
@@ -32,6 +35,7 @@ def test_add_movement():
 
 @pytest.mark.unit
 def test_add_balance_for_dept():
+    """Test adding a balance for a department."""
     load(PEOPLE_FILE)
     original = read(dept="Sales")
 
@@ -44,6 +48,7 @@ def test_add_balance_for_dept():
 
 @pytest.mark.unit
 def test_add_balance_for_person():
+    """Test adding a balance for a specific person."""
     load(PEOPLE_FILE)
     original = read(email="jim@dundlermifflin.com")
 

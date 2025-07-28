@@ -1,11 +1,16 @@
+"""Module for testing the read functionality of the dundie rewards system."""
+
 import pytest
 
 from dundie.core import load, read
 from dundie.database import add_person, commit, connect
 
+from .constants import PEOPLE_FILE
+
 
 @pytest.mark.unit
 def test_read_with_query():
+    """Test reading data with specific queries."""
     db = connect()
 
     pk = "joe@doe.com"
@@ -34,6 +39,7 @@ def test_read_with_query():
 
 @pytest.mark.unit
 def test_read_all_data():
+    """Test reading all data from the database."""
     load(PEOPLE_FILE)
     result = read()
     assert len(result) == 3
@@ -41,6 +47,7 @@ def test_read_all_data():
 
 @pytest.mark.unit
 def test_read_only_one_dept():
+    """Test reading data filtered by department."""
     load(PEOPLE_FILE)
     result = read(dept="Sales")
     assert len(result) == 2
@@ -48,6 +55,7 @@ def test_read_only_one_dept():
 
 @pytest.mark.unit
 def test_read_only_one_person():
+    """Test reading data for a specific person."""
     load(PEOPLE_FILE)
     result = read(email="jim@dundlermifflin.com")
     assert len(result) == 1

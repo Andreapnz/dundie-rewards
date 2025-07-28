@@ -1,3 +1,5 @@
+"""Constants for test configurations and file paths."""
+
 import os
 
 TEST_PATH = os.path.dirname(__file__)

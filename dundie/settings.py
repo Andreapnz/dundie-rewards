@@ -1,3 +1,5 @@
+"""Módulo de configuração do Dundie."""
+
 import os
 
 SMTP_HOST = "localhost"

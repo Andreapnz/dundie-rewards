@@ -1,1 +1,1 @@
-
+"""Initialize dundie package."""

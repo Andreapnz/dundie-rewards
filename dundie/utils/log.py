@@ -1,3 +1,5 @@
+"""Módulo para configurar el logger de dundie."""
+
 import logging
 import os
 from logging import handlers
@@ -14,7 +16,7 @@ fmt = logging.Formatter(
 def get_logger(
     logfile: Union[str, os.PathLike[str]] = "dundie.log",
 ) -> logging.Logger:
-    """Returns a configured logger."""
+    """Return a configured logger."""
     # ch = logging.StreamHandler()  # Console/terminal/stderr
     # ch.setLevel(log_level)
     fh = handlers.RotatingFileHandler(

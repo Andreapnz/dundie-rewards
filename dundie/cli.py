@@ -1,4 +1,4 @@
-"""Dundie CLI Application"""
+"""Dundie CLI Application."""
 
 import json
 
@@ -55,7 +55,7 @@ def load(filepath):
 @click.option("--email", required=False)
 @click.option("--output", default=None)
 def show(output, **query):
-    """Shows information about user or dept."""
+    """Show information about user or dept."""
     result = core.read(**query)
     if output:
         with open(output, "w") as output_file:
@@ -92,6 +92,6 @@ def add(ctx, value, **query):
 @click.option("--email", required=False)
 @click.pass_context
 def remove(ctx, value, **query):
-    """Removes points from the user or dept."""
+    """Remove points from the user or dept."""
     core.add(-value, **query)
     ctx.invoke(show, **query)

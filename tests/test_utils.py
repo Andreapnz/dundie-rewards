@@ -1,3 +1,5 @@
+"""Unit tests for utils module."""
+
 import pytest
 
 from dundie.utils.email import check_valid_email
@@ -14,16 +16,16 @@ def test_positive_check_valid_email(address):
 
 
 @pytest.mark.unit
-@pytest.mark.unit
 @pytest.mark.parametrize("address", ["andrea@.com", "@doe.com", "a@b"])
-def test_positive_check_valid_email(address):
+def test_negative_check_valid_email(address):
     """Ensure email is invalid."""
     assert check_valid_email(address) is False
 
 
 @pytest.mark.unit
 def test_generate_simple_password():
-    """Test generation of random simple passwords
+    """Test generation of random simple passwords.
+
     TODO: Generate hashed complex passwords, encrypit it
     """
     passwords = []

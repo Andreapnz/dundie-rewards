@@ -1,3 +1,5 @@
+"""Módulo para enviar correos electrónicos."""
+
 import re
 import smtplib
 from email.mime.text import MIMEText as MimeText
@@ -16,6 +18,7 @@ def check_valid_email(address):
 
 
 def send_email(from_, to, subject, text):
+    """Send an email using the configured SMTP server."""
     if not isinstance(to, list):
         to = [to]
 
