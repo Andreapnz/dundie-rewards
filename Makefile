@@ -1,4 +1,4 @@
-.PHONY: install virtualenv ipython clean test pflake8
+.PHONY: install virtualenv ipython clean test pflake8 fmt lint watch docs docs-server build 
 
 
 install:
@@ -21,17 +21,13 @@ fmt:
 	@.venv/bin/black dundie tests integration
 
 test:
-	@.venv/bin/pytest -s
-
-testci:
-	@.venv/bin/pytest -v --junitxml=test-result.xml  
-
+	@.venv/bin/pytest -s -v --forked
+ 
 watch:
 	# @.venv/bin/ptw
-	@ls **/*.py | entr pytest
+	@ls **/*.py | entr pytest -s --forked
 
-
-clean:            ## Clean unused files.
+clean:            
 	@find ./ -name '*.pyc' -exec rm -f {} \;
 	@find ./ -name '_pycache_' -exec rm -rf {} \;
 	@find ./ -name 'Thumbs.db' -exec rm -f {} \;
@@ -45,4 +41,16 @@ clean:            ## Clean unused files.
 	@rm -rf htmlcov
 	@rm -rf .tox/
 	@rm -rf docs/_build
+
+docs:
+	@mkdocs build --clean
+
+docs-server:
+	@mkdocs serve
+
+build:
+	@python setup.py sdist bdist_wheel
+
+publish:
+	@twine upload dist/*
 

@@ -1,6 +1,9 @@
+"""Módulo para configurar el logger de dundie."""
+
 import logging
 import os
 from logging import handlers
+from typing import Union
 
 LOG_LEVEL = os.getenv("LOG_LEVEL", "WARNING").upper()
 log = logging.getLogger("dundie")
@@ -10,13 +13,15 @@ fmt = logging.Formatter(
 )
 
 
-def get_logger(logfile="dundie.log"):
-    """Returns a configured logger."""
+def get_logger(
+    logfile: Union[str, os.PathLike[str]] = "dundie.log",
+) -> logging.Logger:
+    """Return a configured logger."""
     # ch = logging.StreamHandler()  # Console/terminal/stderr
     # ch.setLevel(log_level)
     fh = handlers.RotatingFileHandler(
-        "meulog.log",
-        maxBytes=300,  # 10**6
+        logfile,
+        maxBytes=10**6,
         backupCount=10,
     )
     fh.setLevel(LOG_LEVEL)

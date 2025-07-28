@@ -1,11 +1,12 @@
-[tool.pytest.ini_options]
+ [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "-ra -q -vv"
 testpaths = [
     "tests",
     "integration",
 ]
- 
+
+
 [tool.flake8]
 exclude = [".venv", "build"]
 max-line-length = 79
